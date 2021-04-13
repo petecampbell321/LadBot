@@ -2,6 +2,10 @@ import discord
 import os
 import requests
 import json
+from keep_alive import keep_alive
+
+# BOT IDEAS
+# - Trivia bets (using https://opentdb.com/api_config.php)
 
 client = discord.Client()
 
@@ -34,7 +38,5 @@ async def on_message(message):
   if msg.startswith('you\'re a'):
     await message.channel.send('No u.')
 
-# BOT IDEAS
-# - Trivia bets (using https://opentdb.com/api_config.php)
-
+keep_alive()
 client.run(os.getenv('TOKEN'))
