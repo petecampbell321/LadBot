@@ -3,9 +3,12 @@ import os
 import requests
 import json
 from keep_alive import keep_alive
+from my_openai import ai_response
 
 # BOT IDEAS
 # - Trivia bets (using https://opentdb.com/api_config.php)
+# - Score system (Like gems in work Slack)
+# - GPT-3
 
 client = discord.Client()
 
@@ -37,6 +40,9 @@ async def on_message(message):
 
   if msg.startswith('you\'re a'):
     await message.channel.send('No u.')
+
+  if msg.startswith(''):
+    await message.channel.send(ai_response(msg))
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
